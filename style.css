@@ -1,0 +1,21 @@
+body{
+  height: 100vh;
+}
+
+.container{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  top: 40%;
+  margin: auto;
+  text-align: center;
+}
+
+#userGuess{
+  padding: 5px;
+  padding-bottom: 50px;
+}
+
+#userField{
+  padding: 20px;
+}
