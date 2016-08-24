@@ -20,20 +20,28 @@ var clearButton = document.querySelector('.clearButton');
 
 var randomNumber = getRandomNumber();
 
+var currentGuess = parseInt(guess.value);
+
 var newGameButton = document.querySelector('.newGame');
 
+var feedback = document.querySelector('.feedback');
+
 function realPlayerNumber() {
-  return parseInt(guess.value,10);
+  return parseInt(guess.value);
 };
+
 
 function getRandomNumber() {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
+
+
 //clearButton clears input button
 
 clearButton.addEventListener('click', function() {
   guess.value = '';
+  clearButton.disabled = true;
 })
 
 //guessButton pushes player guess back into browser for player to see and sets input field back to ''
@@ -41,6 +49,11 @@ clearButton.addEventListener('click', function() {
 guessButton.addEventListener('click', function () {
  userMessage.innerText = realPlayerNumber(guess);
  submitGuess();
+
+ compareGuess();
+
+ guessButton.disabled = true;
+ clearButton.disabled = true;
 });
 
 //function to excecture when guesButton is pressed
@@ -61,6 +74,8 @@ function submitGuess() {
 }
 
 // clearButton disabled/enabled functionality
+
+
 
 guess.addEventListener('input', function() {
   if (guess.value === '') {
@@ -88,6 +103,14 @@ newGameButton.addEventListener('click', function() {
 function resetComputerGuess(){
   randomNumber = getRandomNumber();
   return randomNumber;
+}
+
+function compareGuess(){
+  var currentGuess = parseInt(guess.value);
+  if (currentGuess < min || currentGuess > max) {
+    feedback.innerText = "Your guess is outside the range."
+  }
+
 }
 // function to return random number
 
