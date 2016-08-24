@@ -2,6 +2,12 @@ body{
   height: 100vh;
 }
 
+.userInstruction{
+  width: 200px;
+  height: 200px;
+  font-size: 24px;
+}
+
 .container{
   position: relative;
   width: 300px;

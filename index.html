@@ -3,41 +3,42 @@
   <head>
     <meta charset="utf-8">
     <title>Number Guesser</title>
-    <link rel="stylesheet" href="scripts.js" media="screen" title="no title" charset="utf-8">
+
     <link rel="stylesheet" href="reset.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+
   </head>
 
 
   <body>
     <div class="container">
+      <div class= "userInstruction">
+        <p>
+          <span>You guessed <span class="userMessage">
+        </p>
 
-      <div id="userGuess">
-        <p class="userMessage">
+        <p>
+          <span><span class="feedback">
         </p>
       </div>
 
-      <article id="userInputField">
-
         <article class="textField">
 
-            <input type="text" id = "userGuess" name="number" min="1" max="100" placeholder="Guess a number!">
+            <input id = "userGuess" type="number" placeholder="Guess a number!">
 
         </article>
 
-      </article>
+        <article id="buttons">
 
-      <article id="buttons">
+          <button class="guessButton" disabled>Submit Guess</button>
 
-        <button type="submit" name="button">Submit Number</button>
+          <button  class="clearButton" disabled>Clear</button>
 
-        <button type="button" name="button">Clear</button>
+          <button class="newGame">New Game</button>
 
-        <button type="reset" name="button">New Game</button>
+        </article>
 
-      </article>
-
-    </div>
-
+      </div>
+    <script type="text/javascript" src="scripts.js" ></script>
   </body>
 </html>
