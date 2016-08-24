@@ -20,8 +20,6 @@ var clearButton = document.querySelector('.clearButton');
 
 var randomNumber = getRandomNumber();
 
-
-
 var newGameButton = document.querySelector('.newGame');
 
 function realPlayerNumber() {
@@ -47,6 +45,7 @@ guessButton.addEventListener('click', function () {
 
 //function to excecture when guesButton is pressed
 function submitGuess() {
+
   var realPlayerGuess = realPlayerNumber();
   console.log(realPlayerGuess);
   console.log(randomNumber);
@@ -78,10 +77,18 @@ guess.addEventListener('input', function() {
   }
 })
 
+
+newGameButton.addEventListener('click', function() {
+  resetComputerGuess();
+  guess.value = '';
+})
 //function to turn text from guess into true number
 
 
-
+function resetComputerGuess(){
+  randomNumber = getRandomNumber();
+  return randomNumber;
+}
 // function to return random number
 
 
