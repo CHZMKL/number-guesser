@@ -13,7 +13,23 @@ var feedback = document.querySelector('.feedback');
 
 
 
+
 //functions
+
+//disable text box after player wins
+function disableText() {
+  guess.disabled = true;
+}
+
+//clears feedback to null
+function clearFeedback() {
+  feedback.innerText = '';
+}
+
+//resets user message when a new game starts
+function resetUserMessage() {
+  userMessage.innerText = 'Let\'s play again. Guess a number!';
+}
 
 //turns player string into number
 function realPlayerNumber() {
@@ -34,6 +50,8 @@ function submitGuess() {
   if (realPlayerGuess === randomNumber) {
     feedback.innerText = "You have guessed wisely!";
     newGameButton.disabled = false;
+    disableText();
+
   }
   else if (realPlayerGuess < randomNumber) {
     feedback.innerText = "Sorry, that guess is too low. Try a higher number.";
@@ -53,9 +71,11 @@ function resetComputerGuess(){
 function compareGuess(){
   var currentGuess = parseInt(guess.value);
   if (currentGuess < min || currentGuess > max) {
-    feedback.innerText = "Your guess is outside the range."
+    feedback.innerText = "Your guess is outside the range. Guess again between " + min + " and " + max +"."
   }
 }
+
+
 
 
 //button functionality
@@ -64,11 +84,12 @@ function compareGuess(){
 clearButton.addEventListener('click', function() {
   guess.value = '';
   clearButton.disabled = true;
+  guessButton.disabled = true;
 })
 
 //guessButton pushes player guess back into browser for player to see and resets field back
 guessButton.addEventListener('click', function () {
- userMessage.innerText = realPlayerNumber(guess);
+ userMessage.innerText = "You guessed " + realPlayerNumber(guess) + ".";
  submitGuess();
  compareGuess();
  guessButton.disabled = true;
@@ -81,7 +102,11 @@ newGameButton.addEventListener('click', function() {
   resetComputerGuess();
   newGameButton.disabled = true;
   guess.value = '';
+  clearFeedback();
+  resetUserMessage();
 })
+
+
 
 
 //text field functionality
@@ -101,7 +126,3 @@ guess.addEventListener('input', function() {
     guessButton.disabled = false;
   }
 })
-
-
-
-//function to turn text from guess into true number
