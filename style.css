@@ -63,3 +63,11 @@ button:disabled {
 button:focus{
   outline: 0;
 }
+
+button:hover{
+  cursor: pointer;
+}
+
+button:hover:disabled{
+  cursor: auto;
+}

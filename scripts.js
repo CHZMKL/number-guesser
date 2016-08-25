@@ -84,12 +84,12 @@ function resetUserMessage() {
 //turns player string into number
 function realPlayerNumber() {
   return parseInt(guess.value);
-};
+}
 
 //generates random number
 function getRandomNumber() {
   return Math.floor(Math.random() * (max - min)) + min;
-};
+}
 
 //function to excecture when guesButton is pressed
 function submitGuess() {
@@ -120,7 +120,7 @@ function resetComputerGuess(){
 function compareGuess(){
   var currentGuess = parseInt(guess.value);
   if (currentGuess < min || currentGuess > max) {
-    feedback.innerText = "Your guess is outside the range. Guess again between " + min + " and " + max +"."
+    feedback.innerText = "Your guess is outside the range. Guess again between " + min + " and " + max +".";
   }
 }
 
@@ -134,7 +134,7 @@ clearButton.addEventListener('click', function() {
   emptyGuess();
   disableClear();
   disableGuess();
-})
+});
 
 //guessButton pushes player guess back into browser for player to see and resets field back
 guessButton.addEventListener('click', function () {
@@ -166,7 +166,7 @@ newGameButton.addEventListener('click', function() {
   resetUserMessage();
   enableText();
   enablePlace();
-})
+});
 
 
 
