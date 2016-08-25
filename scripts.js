@@ -21,9 +21,59 @@ function disableText() {
   guess.disabled = true;
 }
 
+//enable text field
+function enableText() {
+  guess.disabled = false;
+}
+
+//clear placeholder
+function clearPlace(){
+  guess.placeholder = '';
+}
+
+//enable placeholder
+function enablePlace(){
+  guess.placeholder = 'Enter guess here!';
+}
+
+//enable new game button
+function enableNewGame() {
+  newGameButton.disabled = false;
+}
+
+//disable new game button
+function disableNewGame(){
+  newGameButton.disabled = true;
+}
+
+//enable guess button
+function enableGuess() {
+  guessButton.disabled = false;
+}
+
+//disable guess button
+function disableGuess(){
+  guessButton.disabled = true;
+}
+
+//enable clear
+function enableClear() {
+  clearButton.disabled = false;
+}
+
+//disable clear button
+function disableClear() {
+  clearButton.disabled = true;
+}
+
 //clears feedback to null
 function clearFeedback() {
   feedback.innerText = '';
+}
+
+//empty user guess
+function emptyGuess() {
+  guess.value = '';
 }
 
 //resets user message when a new game starts
@@ -43,15 +93,14 @@ function getRandomNumber() {
 
 //function to excecture when guesButton is pressed
 function submitGuess() {
-
   var realPlayerGuess = realPlayerNumber();
   console.log(realPlayerGuess);
   console.log(randomNumber);
   if (realPlayerGuess === randomNumber) {
     feedback.innerText = "You have guessed wisely!";
-    newGameButton.disabled = false;
+    enableNewGame();
     disableText();
-
+    clearPlace();
   }
   else if (realPlayerGuess < randomNumber) {
     feedback.innerText = "Sorry, that guess is too low. Try a higher number.";
@@ -82,9 +131,9 @@ function compareGuess(){
 
 //clearButton clears input field, resets clear button to disabled
 clearButton.addEventListener('click', function() {
-  guess.value = '';
-  clearButton.disabled = true;
-  guessButton.disabled = true;
+  emptyGuess();
+  disableClear();
+  disableGuess();
 })
 
 //guessButton pushes player guess back into browser for player to see and resets field back
@@ -92,18 +141,31 @@ guessButton.addEventListener('click', function () {
  userMessage.innerText = "You guessed " + realPlayerNumber(guess) + ".";
  submitGuess();
  compareGuess();
- guessButton.disabled = true;
- clearButton.disabled = true;
- guess.value = '';
+ disableGuess();
+ disableClear();
+ emptyGuess();
 });
+
+//press enter to submit guess
+guess.onkeydown = function(e){
+  if(e.keyCode == 13){
+ userMessage.innerText = "You guessed " + realPlayerNumber(guess) + ".";
+ submitGuess();
+ compareGuess();
+ disableGuess();
+ disableClear();
+ emptyGuess();}
+};
 
 //newGameButton to reset random number, set newGameButton to disabled during game, and resets text field
 newGameButton.addEventListener('click', function() {
   resetComputerGuess();
-  newGameButton.disabled = true;
-  guess.value = '';
+  disableNewGame();
+  emptyGuess();
   clearFeedback();
   resetUserMessage();
+  enableText();
+  enablePlace();
 })
 
 
@@ -114,15 +176,15 @@ newGameButton.addEventListener('click', function() {
 // clearButton disabled/enabled functionality
 guess.addEventListener('input', function() {
   if (guess.value === '') {
-    clearButton.disabled = true;
+    disableClear();
   }
   else {
-    clearButton.disabled = false;
+    enableClear();
   }
   if (guess.value === '') {
-    guessButton.disabled = true;
+    disableGuess();
   }
   else {
-    guessButton.disabled = false;
+    enableGuess();
   }
 })
