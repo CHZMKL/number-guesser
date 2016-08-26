@@ -22,21 +22,48 @@
         </p>
       </div>
 
-        <article class="textField">
+      <article class="textField">
 
-            <input id = "userGuess" type="number" placeholder="Enter guess here!">
+          <input  min="1" max="100" id = "userGuess"type="number" placeholder="Enter guess here!">
 
-        </article>
+      </article>
 
-        <article id="buttons">
+      <article id="buttons">
 
-          <button class="guessButton" disabled>Submit Guess</button>
+        <button class="guessButton" disabled>Submit Guess</button>
 
-          <button  class="clearButton" disabled>Clear</button>
+        <button  class="clearButton" disabled>Clear</button>
 
-          <button class="newGame" disabled>New Game</button>
+      </article>
 
-        </article>
+      <article class="rangeContainer">
+
+        <p class="rangeText">
+          Minimum Range
+        </p>
+        <input class="userMin" type="number" value=1 placeholder="Minimum Value">
+        <p class="rangeText">
+          Maximum Range
+        </p>
+        <input class="userMax" type="number" value=100 placeholder="Maximum Value">
+
+      </article>
+
+      <article class="inGameInstructions">
+
+        <button class="winText" disabled>You won!</br>Play again with an increased range of 20,</br>or, if you're feeling brave,</br>set your own range!</br>PLAY ON!</button>
+      </article>
+
+      <article>
+
+        <button class="rangeButton" disabled><span class="clickHereTo">click here to</br></span>KEEP PLAYING!</button>
+      </article>
+
+      <article>
+
+        <button class="newGame" disabled>reset game</button>
+
+      </article>
 
       </div>
     <script type="text/javascript" src="scripts.js" ></script>
