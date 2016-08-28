@@ -72,7 +72,7 @@ function submitGuess() {
   console.log(realPlayerGuess);
   console.log(randomNumber);
   if (realPlayerGuess === randomNumber) {
-    innerText(feedback, 'You have geussed wisely!');
+    innerText(feedback, 'You have guessed wisely!');
     disabled(newGameButton, false);
     disabled(guess, true);
     disabled(winText, false);
